@@ -1,0 +1,1 @@
+xfoutput && xfoutput('from 1.js');

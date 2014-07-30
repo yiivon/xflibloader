@@ -1,0 +1,1 @@
+xfoutput && xfoutput('from finished.js');

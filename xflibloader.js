@@ -11,9 +11,15 @@
 
 		_mod.load = function (config) {
 			if (!config) return false;
-			if (typeof (config) === 'string') config = {libs: [config]};GWT
+			// XFLibLoader.load('xx.js');
+			if (typeof (config) === 'string') config = {libs: [config]};
+			// XFLibLoader.load(['1.js', '2.js']);
 			if (typeof(config.length) === 'number') config = {libs: config};
-			if (typeof (config.libs) !== 'object') return false;
+
+			if (typeof (config) !== 'object') return false;
+			// XFLibLoader.load({file:'1.js'});
+			if(!config.libs) config = {libs: [config]};
+
 			config.loaded || (config.loaded = function () {});
 			config.host && (_host = config.host);
 
@@ -90,6 +96,6 @@
 			if (fileref) oHead.appendChild(fileref);
 		}
 
-		module = _mod;
+		window.XFLibLoader = _mod;
 	}
 }(window.XFLibLoader));
